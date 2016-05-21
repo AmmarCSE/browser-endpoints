@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f47a7ee36a3a17f16fe0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5dbe6460aeadb02f6213"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1281,7 +1281,7 @@
 /* 116 */
 /***/ function(module, exports) {
 
-	eval("\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar App = true;\nexports.default = App;//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTE2LmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vL3NyYy9BcHAuanM/MTRiMSJdLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBBcHAgPSB0cnVlXG5leHBvcnQgZGVmYXVsdCBBcHBcblxuXG5cbi8qKiBXRUJQQUNLIEZPT1RFUiAqKlxuICoqIHNyYy9BcHAuanNcbiAqKi8iXSwibWFwcGluZ3MiOiI7Ozs7O0FBQUE7Iiwic291cmNlUm9vdCI6IiJ9");
+	eval("\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar App = true;\n\n(function (proxied) {\n  XMLHttpRequest = function XMLHttpRequest() {\n    var s = new (Function.prototype.bind.apply(proxied, arguments))();\n    //s.open = () => (console.log('wechat'))\n    (function (proxied) {\n      s.send = function () {\n        console.log('yo');\n        return proxied.apply(this, arguments);\n      };\n    })(s.send);\n    //console.log(s);\n    return s;\n  };\n})(XMLHttpRequest);\n\nvar xhttp = new XMLHttpRequest();\nxhttp.onreadystatechange = function () {};\nxhttp.open(\"GET\", \"wechat\", true);\n//xhttp.send();\nexports.default = App;//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTE2LmpzIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vL3NyYy9BcHAuanM/MTRiMSJdLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBBcHAgPSB0cnVlO1xuXG4oKHByb3hpZWQpID0+IHtcbiAgWE1MSHR0cFJlcXVlc3QgPSBmdW5jdGlvbigpIHtcbiAgICB2YXIgcyA9IG5ldyAoRnVuY3Rpb24ucHJvdG90eXBlLmJpbmQuYXBwbHkocHJveGllZCwgYXJndW1lbnRzKSk7XG4gICAgLy9zLm9wZW4gPSAoKSA9PiAoY29uc29sZS5sb2coJ3dlY2hhdCcpKVxuICAgICgocHJveGllZCkgPT4ge1xuICAgICAgcy5zZW5kID0gZnVuY3Rpb24oKSB7XG4gICAgICAgIGNvbnNvbGUubG9nKCd5bycpO1xuICAgICAgICByZXR1cm4gcHJveGllZC5hcHBseSh0aGlzLCBhcmd1bWVudHMpO1xuICAgICAgfTtcbiAgICB9KShzLnNlbmQpO1xuICAgIC8vY29uc29sZS5sb2cocyk7XG4gICAgcmV0dXJuIHM7XG5cbiAgfTtcbn0pKFhNTEh0dHBSZXF1ZXN0KTtcblxudmFyIHhodHRwID0gbmV3IFhNTEh0dHBSZXF1ZXN0KCk7XG4gIHhodHRwLm9ucmVhZHlzdGF0ZWNoYW5nZSA9IGZ1bmN0aW9uKCkge1xuICB9O1xuICB4aHR0cC5vcGVuKFwiR0VUXCIsIFwid2VjaGF0XCIsIHRydWUpO1xuICAvL3hodHRwLnNlbmQoKTtcbmV4cG9ydCBkZWZhdWx0IEFwcFxuXG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogc3JjL0FwcC5qc1xuICoqLyJdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTs7QUFFQSIsInNvdXJjZVJvb3QiOiIifQ==");
 
 /***/ },
 /* 117 */
