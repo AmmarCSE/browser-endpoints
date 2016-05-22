@@ -1,17 +1,17 @@
-import operator from 'operator'
+import { operator } from '../network/operator'
 
 const methods = ['get', 'post', 'put']
 const registrar = {};
 
-for(var method of methods){
-    registrar.method = (capture, execute) => {
+for(let method of methods){
+    registrar[method] = (capture, execute) => {
         operator.subscribe(method, capture, execute)
     }
 }
 
-export function browserServer(){
+export default function browserServer(){
     const api = {}
-    for(var method in registrar){
+    for(let method in registrar){
         api[method] = registrar[method]
     }
 

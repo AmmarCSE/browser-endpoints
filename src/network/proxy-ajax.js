@@ -1,16 +1,16 @@
-import operator from 'operator'
+import { operator } from '../network/operator'
 
-//proxy XMLHttpRequest to that it maybe extended(without overriding)
+//proxy XMLHttpRequest so that it may be extended(without overriding)
 //regular XMLHttpRequests will still function normally
-export XMLHttpRequestProxy = (proxied => {
+const XMLHttpRequestProxy = (proxied => {
   XMLHttpRequest = function() {
     //cannot use apply directly since we want a 'new' version
     let wrapped = new (Function.prototype.bind.apply(proxied, arguments));
 
     (proxied => {
       wrapped.open = function(method, url) {
-        //lets preserve the method, url so we cn use them in our extended functionality
-        wrapped.method = method;
+        //lets preserve the method, url so we can use them in our extended functionality
+        wrapped.method = method.toLowerCase();
         wrapped.url = url;
 
         return proxied.apply(this, arguments);
@@ -33,9 +33,4 @@ export XMLHttpRequestProxy = (proxied => {
   };
 })(XMLHttpRequest);
 
-/*var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-  };
-  xhttp.open("GET", "wechat", true);
-  xhttp.send();
-    console.log(xhttp.responseURL);*/
+export { XMLHttpRequestProxy }
