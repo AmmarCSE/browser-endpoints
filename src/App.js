@@ -1,18 +1,28 @@
 const App = true;
 
-((proxied) => {
+(proxied => {
   XMLHttpRequest = function() {
-    var s = new (Function.prototype.bind.apply(proxied, arguments));
-    //s.open = () => (console.log('wechat'))
-    ((proxied) => {
-      s.send = function() {
-        console.log('yo');
+    let wrapped = new (Function.prototype.bind.apply(proxied, arguments));
+    (proxied => {
+      wrapped.open = function(method, url) {
+        wrapped.method = method;
+        wrapped.url = url;
         return proxied.apply(this, arguments);
       };
-    })(s.send);
-    //console.log(s);
-    return s;
-
+    })(wrapped.open);
+    (proxied => {
+      wrapped.send = function() {
+console.log(wrapped.url);
+        if(wrapped.url == 'wechat'){
+console.log('yolo');
+        }
+        else{
+console.log('loyo');
+            return proxied.apply(this, arguments);
+        }
+      };
+    })(wrapped.send);
+    return wrapped;
   };
 })(XMLHttpRequest);
 
@@ -20,5 +30,6 @@ var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
   };
   xhttp.open("GET", "wechat", true);
-  //xhttp.send();
+  xhttp.send();
+    console.log(xhttp.responseURL);
 export default App
