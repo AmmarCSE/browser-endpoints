@@ -9,7 +9,7 @@ const reload = browserSync.reload;
 gulp.task('default', () => {
   return gulp.src('src/grid/App.js')
     .pipe(webpack(require('./webpack.config.js')))
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('/home/ammar/Work/react-gridify/dist'));
 });
 
 gulp.task('scripts', () => {

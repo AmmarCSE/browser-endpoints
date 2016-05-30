@@ -1,4 +1,5 @@
 import { operator } from '../network/operator'
+import { config } from '../browser-server/server'
 
 //proxy XMLHttpRequest so that it may be extended(without overriding)
 //regular XMLHttpRequests will still function normally
@@ -20,7 +21,7 @@ const XMLHttpRequestProxy = (proxied => {
     (proxied => {
       wrapped.send = function() {
         //check if its a call to our extended functionality and not just a regular request
-        if(wrapped.url == 'wechat'){
+        if(config.indentifier.test(wrapped.url){
             operator.broadcast(wrapped.method, wrapped.url);
         }
         else{

@@ -1,6 +1,7 @@
 import { operator } from '../network/operator'
 
 const methods = ['get', 'post', 'put']
+export config = { identifier: /^\[be\]/, networkDelay: 700 };
 const registrar = {};
 
 for(let method of methods){
@@ -9,7 +10,9 @@ for(let method of methods){
     }
 }
 
-export default function browserServer(){
+export default function browserServer(configSettings = config){
+    config = config
+
     const api = {}
     for(let method in registrar){
         api[method] = registrar[method]
