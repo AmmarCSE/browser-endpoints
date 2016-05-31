@@ -1,17 +1,8 @@
 import { operator } from '../network/operator'
+import setConfig from '../config'
 
-const methods = ['get', 'post', 'put']
-export config = { identifier: /^\[be\]/, networkDelay: 700 };
-const registrar = {};
-
-for(let method of methods){
-    registrar[method] = (capture, execute) => {
-        operator.subscribe(method, capture, execute)
-    }
-}
-
-export default function browserServer(configSettings = config){
-    config = config
+export default function browserServer(configSettings = null){
+    configSettings && setConfig(configSettings)
 
     const api = {}
     for(let method in registrar){
@@ -20,3 +11,13 @@ export default function browserServer(configSettings = config){
 
     return api
 }
+
+const methods = ['get', 'post', 'put']
+const registrar = {}
+
+for(let method of methods){
+    registrar[method] = (capture, execute) => {
+        operator.subscribe(method, capture, execute)
+    }
+}
+
