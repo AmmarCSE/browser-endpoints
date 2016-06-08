@@ -15,10 +15,10 @@ const subscribe = (method, url, execute) => {
     subscriptions[endpoint] = execute; 
 }
 
-const broadcast = (method, url, client) => {
+const broadcast = (method, url, client, params) => {
     const endpoint = generateEndPoint(method, url);
     subscriptionClients[endpoint] = client; 
-    subscriptions[endpoint](request(method, url), response(method, url)); 
+    subscriptions[endpoint](request(method, url, params), response(method, url)); 
     client.triggerReadyStateChange(3);
 }
 

@@ -1,6 +1,7 @@
-export default function request(method, originalUrl){
+export default function request(method, originalUrl, params){
     return {
         method,
-        originalUrl
+        originalUrl,
+        params
     }
 }

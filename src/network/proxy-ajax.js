@@ -41,10 +41,10 @@ const XMLHttpRequestProxy = (proxied => {
     })(wrapped.open);
 
     (proxied => {
-      wrapped.send = function() {
+      wrapped.send = function(params) {
         //check if its a call to our extended functionality and not just a regular request
         if(usesExtended){
-            operator.broadcast(this.method, this.url, this);
+            operator.broadcast(this.method, this.url, this, params);
             this.triggerReadyStateChange(2);
         }
         else{
