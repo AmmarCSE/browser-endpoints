@@ -8,7 +8,7 @@ This facilitation is made possible primarily via two prerogatives implemented by
 The native `XMLHttpRequest` object is overridden and wrapped to implement the extended functionality provided. This is done in an unobtrusive manner such that regular HTTP requests via the object are untouched. Only requests which fit a specified identifier are overriden by the extended functionality. Making requests to virtual endpoints do not require any extra steps and should be made as if making a regular HTTP request. 
 
 #### Endpoint framework
-A framework is provided by the plugin which mimics the express-js [api](http://expressjs.com/en/4x/api.html) in order to minimize any learning overhead needed to use the framework api. Endpoints can be registered via conventional methods such as `get, post, put, etc.`, and the conventional [request[(http://expressjs.com/en/4x/api.html#req) and [response](http://expressjs.com/en/4x/api.html#res) objects will be injected into the callback provided.
+A framework is provided by the plugin which mimics the express-js [api](http://expressjs.com/en/4x/api.html) in order to minimize any learning overhead needed to use the framework api. Endpoints can be registered via conventional methods such as `get, post, put, etc.`, and the conventional [request](http://expressjs.com/en/4x/api.html#req) and [response](http://expressjs.com/en/4x/api.html#res) objects will be injected into the callback provided.
 
 Getting Set Up
 --------------
