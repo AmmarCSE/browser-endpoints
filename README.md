@@ -58,3 +58,7 @@ xhttp.open('GET', '[be]/search, true);
 xhttp.send({term:....});
 
 ```
+
+Support
+--------------
+This plugin is not supported in IE. This is due to the use of extensions made to the native `XMLHttpRequest` object that are incompatible with IE. 
